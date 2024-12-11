@@ -16,6 +16,13 @@ _A Criss-Cross Brain Foundation Model for EEG Decoding_
 <img src="figure/CBraMod_logo.png" style="width: 15%;" />
 </div>
 
+
+## 🔍 About
+We propose **CBraMod**, a novel EEG foundation model, for EEG decoding on various clinical and BCI application.
+<div align="center">
+<img src="figure/model.png" style="width:80%;" />
+</div>
+
 ## Updating...
 
 
