@@ -1,1 +1,1 @@
-### There is the pretrained_weights of CBraMod.
+### There is the pretrained weights of CBraMod.
