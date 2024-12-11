@@ -10,6 +10,7 @@ _A Criss-Cross Brain Foundation Model for EEG Decoding_
 ![GitHub Repo stars](https://img.shields.io/github/stars/wjq-learning/CBraMod)
 
 
+</div>
 
 
 <div align="center">
