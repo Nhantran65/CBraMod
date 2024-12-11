@@ -9,7 +9,6 @@ _A Criss-Cross Brain Foundation Model for EEG Decoding_
 [![huggingface](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Models-FFD21E)](https://huggingface.co/weighting666/CBraMod)
 ![GitHub Repo stars](https://img.shields.io/github/stars/wjq-learning/CBraMod)
 
-
 </div>
 
 
@@ -21,7 +20,7 @@ _A Criss-Cross Brain Foundation Model for EEG Decoding_
 
 
 #### Please cite:
-```bash
+```bibtex
 @misc{wang2024cbramod,
       title={CBraMod: A Criss-Cross Brain Foundation Model for EEG Decoding}, 
       author={Jiquan Wang and Sha Zhao and Zhiling Luo and Yangxuan Zhou and Haiteng Jiang and Shijian Li and Tao Li and Gang Pan},
