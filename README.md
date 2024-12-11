@@ -6,10 +6,11 @@
 _A Criss-Cross Brain Foundation Model for EEG Decoding_
 
 [![Paper](https://img.shields.io/badge/paper-2412.07236-red)](https://arxiv.org/abs/2412.07236)
+[![huggingface](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Models-FFD21E)](https://huggingface.co/weighting666/CBraMod)
 ![GitHub Repo stars](https://img.shields.io/github/stars/wjq-learning/CBraMod)
 
 
-</div>
+
 
 <div align="center">
 <img src="figure/CBraMod_logo.png" style="width: 15%;" />
