@@ -16,7 +16,7 @@ _A Criss-Cross Brain Foundation Model for EEG Decoding_
 <img src="figure/CBraMod_logo.png" style="width: 15%;" />
 </div>
 
-#### Updating...
+## Updating...
 
 
 
