@@ -1,8 +1,19 @@
+<div align="center">
+
 # CBraMod
 
-#### The code of the paper "CBraMod: A Criss-Cross Brain Foundation Model for EEG Decoding".
 
-#### You should read the paper in https://arxiv.org/abs/2412.07236.
+_A Criss-Cross Brain Foundation Model for EEG Decoding_
+
+[![Paper](https://img.shields.io/badge/paper-2412.07236-red)](https://arxiv.org/abs/2412.07236)
+![GitHub Repo stars](https://img.shields.io/github/stars/wjq-learning/CBraMod)
+
+
+</div>
+
+<div align="center">
+<img src="figure/CBraMod_logo.png" style="width: 15%;" />
+</div>
 
 #### Updating...
 
