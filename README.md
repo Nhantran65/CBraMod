@@ -19,7 +19,9 @@ _A Criss-Cross Brain Foundation Model for EEG Decoding_
 #### Updating...
 
 
-#### Please cite:
+
+## 🔗 Citation
+If you're using this repository in your research or applications, please cite using the following BibTeX:
 ```bibtex
 @misc{wang2024cbramod,
       title={CBraMod: A Criss-Cross Brain Foundation Model for EEG Decoding}, 
