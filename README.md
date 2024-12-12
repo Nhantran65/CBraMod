@@ -23,7 +23,7 @@ We propose **CBraMod**, a novel EEG foundation model, for EEG decoding on variou
 <img src="figure/model.png" style="width:80%;" />
 </div>
 
-## Updating...
+## 🔧 Updating...
 
 
 
