@@ -23,6 +23,9 @@ We propose **CBraMod**, a novel EEG foundation model, for EEG decoding on variou
 <img src="figure/model.png" style="width:80%;" />
 </div>
 
+## 🔧 The repository is updating...
+
+
 ## 🔥 How to Pretrain
 You can pretrain CBraMod on our pretraining dataset or your custom pretraining dataset using the following code:
 ```bash
@@ -55,7 +58,6 @@ classifier = nn.Sequential(
 mock_eeg = torch.randn((8, 22, 4, 200)).to(device) # (batch_size, num_of_channels, time_segments, points_per_patch)
 logits = classifier(model(mock_eeg)) # (batch_size, num_of_classes)
 ```
-## 🔧 Updating...
 
 
 
