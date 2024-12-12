@@ -24,6 +24,7 @@ We propose **CBraMod**, a novel EEG foundation model, for EEG decoding on variou
 </div>
 
 ## 🔥 How to Pretrain
+You can pre-train CBraMod on our pre-training dataset or your own custom pre-training dataset using the following code:
 ```bash
 python pretrain_main.py
 ```
