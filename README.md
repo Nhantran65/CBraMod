@@ -23,6 +23,12 @@ We propose **CBraMod**, a novel EEG foundation model, for EEG decoding on variou
 <img src="figure/model.png" style="width:80%;" />
 </div>
 
+## 🔥 How to Pretrain
+```bash
+python pretrain_main.py
+```
+
+
 ## 🔧 Updating...
 
 
