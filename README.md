@@ -55,9 +55,12 @@ classifier = nn.Sequential(
   nn.Dropout(0.1),
   nn.Linear(200, 4)
 ).to(device)
-  
-mock_eeg = torch.randn((8, 22, 4, 200)).to(device) # (batch_size, num_of_channels, time_segments, points_per_patch)
-logits = classifier(model(mock_eeg)) # (batch_size, num_of_classes)
+
+# mock_eeg.shape = (batch_size, num_of_channels, time_segments, points_per_patch)
+mock_eeg = torch.randn((8, 22, 4, 200)).to(device)
+
+# logits.shape = (batch_size, num_of_classes)
+logits = classifier(model(mock_eeg))
 ```
 
 
