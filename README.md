@@ -45,6 +45,7 @@ from einops.layers.torch import Rearrange
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 model = CBraMod().to(device)
 model.load_state_dict(torch.load('pretrained_weights/pretrained_weights.pth', map_location=device))
+model.proj_out = nn.Identity()
 classifier = nn.Sequential(
   Rearrange('b c s p -> b (c s p)'),
   nn.Linear(22*4*200, 4*200),
