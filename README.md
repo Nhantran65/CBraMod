@@ -26,7 +26,9 @@ The preprint version of our paper is available at https://arxiv.org/abs/2412.072
 <img src="figure/model.png" style="width:100%;" />
 </div>
 
-## 🔥 How to Pretrain
+## 🔥 Our work has been accepted by ICLR 2025!
+
+## 🚢 How to Pretrain
 You can pretrain CBraMod on our pretraining dataset or your custom pretraining dataset using the following code:
 ```bash
 python pretrain_main.py
