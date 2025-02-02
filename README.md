@@ -16,6 +16,7 @@ _A Criss-Cross Brain Foundation Model for EEG Decoding_
 <img src="figure/CBraMod_logo.png" style="width: 15%;" />
 </div>
 
+
 ## 🔥 This paper has been accepted by ICLR 2025!
 
 ## 🔍 About
@@ -78,6 +79,10 @@ If you're using this repository in your research or applications, please cite us
 }
 ```
 
-## Star History
+## ⭐ Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=wjq-learning/CBraMod&type=Date)](https://star-history.com/#wjq-learning/CBraMod&Date)
+<div align="center">
+    <a href="https://star-history.com/#wjq-learning/CBraMod&Date">
+        <img src="https://api.star-history.com/svg?repos=wjq-learning/CBraMod&type=Date" style="width: 70%;" />
+    </a>
+</div>
