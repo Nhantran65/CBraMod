@@ -75,3 +75,7 @@ If you're using this repository in your research or applications, please cite us
   year={2024}
 }
 ```
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=wjq-learning/CBraMod&type=Date)](https://star-history.com/#wjq-learning/CBraMod&Date)
