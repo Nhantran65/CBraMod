@@ -16,8 +16,7 @@ _A Criss-Cross Brain Foundation Model for EEG Decoding_
 <img src="figure/CBraMod_logo.png" style="width: 15%;" />
 </div>
 
-## 🔧 The repository is updating ...
-**We are refining the code for fine-tuning CBraMod on downstream tasks and providing updates intermittently.**
+## 🔥 This paper has been accepted by ICLR 2025!
 
 ## 🔍 About
 We propose **CBraMod**, a novel EEG foundation model, for EEG decoding on various clinical and BCI application.
@@ -26,7 +25,8 @@ The preprint version of our paper is available at https://arxiv.org/abs/2412.072
 <img src="figure/model.png" style="width:100%;" />
 </div>
 
-## 🔥 Our work has been accepted by ICLR 2025!
+## 🔧 The repository is updating ...
+**We are refining the code for fine-tuning CBraMod on downstream tasks and providing updates intermittently.**
 
 ## 🚢 How to Pretrain
 You can pretrain CBraMod on our pretraining dataset or your custom pretraining dataset using the following code:
