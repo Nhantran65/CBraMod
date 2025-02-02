@@ -25,7 +25,7 @@ The preprint version of our paper is available at https://arxiv.org/abs/2412.072
 </div>
 
 ## 🔧 The repository is updating ...
-**We are currently developing the code to fine-tune models for downstream tasks.**
+**We are refining the code for fine-tuning CBraMod on downstream tasks and providing updates intermittently.**
 
 ## 🔥 How to Pretrain
 You can pretrain CBraMod on our pretraining dataset or your custom pretraining dataset using the following code:
