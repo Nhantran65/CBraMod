@@ -21,7 +21,8 @@ _A Criss-Cross Brain Foundation Model for EEG Decoding_
 
 ## 🔍 About
 We propose **CBraMod**, a novel EEG foundation model, for EEG decoding on various clinical and BCI application.
-The preprint version of our paper is available at https://arxiv.org/abs/2412.07236.
+The preprint version of our paper is available at https://arxiv.org/abs/2412.07236. 
+The camera-ready version of the paper will be available at https://openreview.net/forum?id=NPNUHgHF2w.
 <div align="center">
 <img src="figure/model.png" style="width:100%;" />
 </div>
