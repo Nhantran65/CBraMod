@@ -26,9 +26,9 @@ class Trainer(object):
         self.test_eval = Evaluator(params, self.data_loader['test'])
 
         self.model = model.cuda()
-        if self.params.downstream_dataset in ['FACED', 'SEED-V', 'PhysioNet-MI', 'ISRUC', 'BCIC2020-3']:
+        if self.params.downstream_dataset in ['FACED', 'SEED-V', 'PhysioNet-MI', 'ISRUC', 'BCIC2020-3', 'TUEV']:
             self.criterion = CrossEntropyLoss(label_smoothing=self.params.label_smoothing).cuda()
-        elif self.params.downstream_dataset in ['SHU-MI', 'CHB-MIT', 'Mumtaz2016', 'MentalArithmetic']:
+        elif self.params.downstream_dataset in ['SHU-MI', 'CHB-MIT', 'Mumtaz2016', 'MentalArithmetic', 'TUAB']:
             self.criterion = BCEWithLogitsLoss().cuda()
         elif self.params.downstream_dataset == 'SEED-VIG':
             self.criterion = MSELoss().cuda()
@@ -216,7 +216,6 @@ class Trainer(object):
                 x = x.cuda()
                 y = y.cuda()
                 pred = self.model(x)
-
                 loss = self.criterion(pred, y)
 
                 loss.backward()
