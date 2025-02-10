@@ -17,6 +17,14 @@ _A Criss-Cross Brain Foundation Model for EEG Decoding_
 <img src="figure/CBraMod_logo.png" style="width: 15%;" />
 </div>
 
+<p align="center">
+    🔍&nbsp;<a href="#-about">About</a>
+    | 🚢&nbsp;<a href="#-pretrain">How to Pretrain</a>
+    | ⛵&nbsp;<a href="#-finetune">How to Finetune</a>
+    | 🚀&nbsp;<a href="#-quick">Quick Start</a>
+    | 🚀&nbsp;<a href="#-citation">Citation</a>
+</p>
+
 🔥 NEWS: The paper of CBraMod has been accepted by ICLR 2025!
 
 ## 🔍 About
