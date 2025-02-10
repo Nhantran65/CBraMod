@@ -25,7 +25,7 @@ _A Criss-Cross Brain Foundation Model for EEG Decoding_
     | 🔗&nbsp;<a href="#-citation">Citation</a>
 </p>
 
-🔥 NEWS: The paper of CBraMod has been accepted by ICLR 2025!
+🔥 NEWS: The paper "_CBraMod: A Criss-Cross Brain Foundation Model for EEG Decoding_" has been accepted by ICLR 2025!
 
 ## 🔍 About
 We propose **CBraMod**, a novel EEG foundation model, for EEG decoding on various clinical and BCI application.
