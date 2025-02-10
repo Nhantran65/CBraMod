@@ -1,22 +1,21 @@
 import argparse
-import torch
-import torch.nn as nn
-from torch.utils.data import DataLoader
-from tqdm import tqdm
-import numpy as np
-import math
-from timeit import default_timer as timer
 import random
+
+import numpy as np
+import torch
+
+from datasets import faced_dataset, seedv_dataset, physio_dataset, shu_dataset, isruc_dataset, chb_dataset, \
+    speech_dataset
 from finetune_trainer import Trainer
-from models import model_for_faced, model_for_seedv, model_for_physio, model_for_shu
-from datasets import faced_dataset, seedv_dataset, physio_dataset, shu_dataset
+from models import model_for_faced, model_for_seedv, model_for_physio, model_for_shu, model_for_isruc, model_for_chb, \
+    model_for_speech
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Big model down stream')
+    parser = argparse.ArgumentParser(description='Big model downstream')
     parser.add_argument('--seed', type=int, default=42, help='random seed (default: 0)')
     parser.add_argument('--cuda', type=int, default=2, help='cuda number (default: 1)')
-    parser.add_argument('--epochs', type=int, default=50, help='number of epochs (default: 5)')
+    parser.add_argument('--epochs', type=int, default=2, help='number of epochs (default: 5)')
     parser.add_argument('--batch_size', type=int, default=64, help='batch size for training (default: 32)')
     parser.add_argument('--lr', type=float, default=1e-4, help='learning rate (default: 1e-3)')
     parser.add_argument('--weight_decay', type=float, default=5e-2, help='weight decay (default: 1e-2)')
@@ -24,13 +23,15 @@ def main():
     parser.add_argument('--clip_value', type=float, default=1, help='clip_value')
     parser.add_argument('--dropout', type=float, default=0.1, help='dropout')
 
-    parser.add_argument('--downstream_dataset', type=str, default='PhysioNet-MI',
-                        help='[FACED, SEED-V, PhysioNet-MI, SHU-MI]')
+    """############ Downstream dataset settings ############"""
+    parser.add_argument('--downstream_dataset', type=str, default='BCIC2020-3',
+                        help='[FACED, SEED-V, PhysioNet-MI, SHU-MI, ISRUC, CHB-MIT, BCIC2020-3]')
     parser.add_argument('--datasets_dir', type=str,
-                        default='/data/datasets/eeg-motor-movementimagery-dataset-1.0.0/processed_4_40hz',
+                        default='/data/datasets/BigDownstream/Imagined speech/processed',
                         help='datasets_dir')
-    parser.add_argument('--num_of_classes', type=int, default=4, help='number of classes')
-    parser.add_argument('--model_dir', type=str, default='/data/wjq/models_weights/Big/BigSEEDV', help='model_dir')
+    parser.add_argument('--num_of_classes', type=int, default=5, help='number of classes')
+    parser.add_argument('--model_dir', type=str, default='/data/wjq/models_weights/Big/BigSpeech', help='model_dir')
+    """############ Downstream dataset settings ############"""
 
     parser.add_argument('--num_workers', type=int, default=16, help='num_workers')
     parser.add_argument('--label_smoothing', type=float, default=0.1, help='label_smoothing')
@@ -73,6 +74,24 @@ def main():
         model = model_for_shu.Model(params)
         t = Trainer(params, data_loader, model)
         t.train_for_binaryclass()
+    elif params.downstream_dataset == 'ISRUC':
+        load_dataset = isruc_dataset.LoadDataset(params)
+        data_loader = load_dataset.get_data_loader()
+        model = model_for_isruc.Model(params)
+        t = Trainer(params, data_loader, model)
+        t.train_for_multiclass()
+    elif params.downstream_dataset == 'CHB-MIT':
+        load_dataset = chb_dataset.LoadDataset(params)
+        data_loader = load_dataset.get_data_loader()
+        model = model_for_chb.Model(params)
+        t = Trainer(params, data_loader, model)
+        t.train_for_binaryclass()
+    elif params.downstream_dataset == 'BCIC2020-3':
+        load_dataset = speech_dataset.LoadDataset(params)
+        data_loader = load_dataset.get_data_loader()
+        model = model_for_speech.Model(params)
+        t = Trainer(params, data_loader, model)
+        t.train_for_multiclass()
     print('Done!!!!!')
 
 

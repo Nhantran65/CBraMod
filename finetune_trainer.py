@@ -26,9 +26,9 @@ class Trainer(object):
         self.test_eval = Evaluator(params, self.data_loader['test'])
 
         self.model = model.cuda()
-        if self.params.downstream_dataset in ['FACED', 'SEED-V', 'PhysioNet-MI']:
+        if self.params.downstream_dataset in ['FACED', 'SEED-V', 'PhysioNet-MI', 'ISRUC', 'BCIC2020-3']:
             self.criterion = CrossEntropyLoss(label_smoothing=self.params.label_smoothing).cuda()
-        elif self.params.downstream_dataset in ['SHU-MI']:
+        elif self.params.downstream_dataset in ['SHU-MI', 'CHB-MIT']:
             self.criterion = BCEWithLogitsLoss().cuda()
 
         self.best_model_states = None
@@ -67,8 +67,10 @@ class Trainer(object):
                 x = x.cuda()
                 y = y.cuda()
                 pred = self.model(x)
-
-                loss = self.criterion(pred, y)
+                if self.params.downstream_dataset == 'ISRUC':
+                    loss = self.criterion(pred.transpose(1, 2), y)
+                else:
+                    loss = self.criterion(pred, y)
 
                 loss.backward()
                 losses.append(loss.data.cpu().numpy())
