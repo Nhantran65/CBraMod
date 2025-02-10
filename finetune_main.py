@@ -5,10 +5,10 @@ import numpy as np
 import torch
 
 from datasets import faced_dataset, seedv_dataset, physio_dataset, shu_dataset, isruc_dataset, chb_dataset, \
-    speech_dataset
+    speech_dataset, mumtaz_dataset, seedvig_dataset
 from finetune_trainer import Trainer
 from models import model_for_faced, model_for_seedv, model_for_physio, model_for_shu, model_for_isruc, model_for_chb, \
-    model_for_speech
+    model_for_speech, model_for_mumtaz, model_for_seedvig
 
 
 def main():
@@ -24,13 +24,13 @@ def main():
     parser.add_argument('--dropout', type=float, default=0.1, help='dropout')
 
     """############ Downstream dataset settings ############"""
-    parser.add_argument('--downstream_dataset', type=str, default='BCIC2020-3',
-                        help='[FACED, SEED-V, PhysioNet-MI, SHU-MI, ISRUC, CHB-MIT, BCIC2020-3]')
+    parser.add_argument('--downstream_dataset', type=str, default='SEED-VIG',
+                        help='[FACED, SEED-V, PhysioNet-MI, SHU-MI, ISRUC, CHB-MIT, BCIC2020-3, Mumtaz2016, SEED-VIG]')
     parser.add_argument('--datasets_dir', type=str,
-                        default='/data/datasets/BigDownstream/Imagined speech/processed',
+                        default='/data/datasets/BigDownstream/SEED-VIG/processed',
                         help='datasets_dir')
-    parser.add_argument('--num_of_classes', type=int, default=5, help='number of classes')
-    parser.add_argument('--model_dir', type=str, default='/data/wjq/models_weights/Big/BigSpeech', help='model_dir')
+    parser.add_argument('--num_of_classes', type=int, default=2, help='number of classes')
+    parser.add_argument('--model_dir', type=str, default='/data/wjq/models_weights/Big/BigVIG', help='model_dir')
     """############ Downstream dataset settings ############"""
 
     parser.add_argument('--num_workers', type=int, default=16, help='num_workers')
@@ -92,6 +92,18 @@ def main():
         model = model_for_speech.Model(params)
         t = Trainer(params, data_loader, model)
         t.train_for_multiclass()
+    elif params.downstream_dataset == 'Mumtaz2016':
+        load_dataset = mumtaz_dataset.LoadDataset(params)
+        data_loader = load_dataset.get_data_loader()
+        model = model_for_mumtaz.Model(params)
+        t = Trainer(params, data_loader, model)
+        t.train_for_binaryclass()
+    elif params.downstream_dataset == 'SEED-VIG':
+        load_dataset = seedvig_dataset.LoadDataset(params)
+        data_loader = load_dataset.get_data_loader()
+        model = model_for_seedvig.Model(params)
+        t = Trainer(params, data_loader, model)
+        t.train_for_regression()
     print('Done!!!!!')
 
 
