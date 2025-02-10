@@ -19,9 +19,9 @@ _A Criss-Cross Brain Foundation Model for EEG Decoding_
 
 <p align="center">
     🔍&nbsp;<a href="#-about">About</a>
-    | 🚢&nbsp;<a href="#-pretrain">How to Pretrain</a>
-    | ⛵&nbsp;<a href="#-finetune">How to Finetune</a>
-    | 🚀&nbsp;<a href="#-quick">Quick Start</a>
+    | 🚢&nbsp;<a href="#-how-to-pretrain">How to Pretrain</a>
+    | ⛵&nbsp;<a href="#-how-to-finetune">How to Finetune</a>
+    | 🚀&nbsp;<a href="#-quick-start">Quick Start</a>
     | 🚀&nbsp;<a href="#-citation">Citation</a>
 </p>
 
