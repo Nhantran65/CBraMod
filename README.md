@@ -87,7 +87,7 @@ logits = classifier(model(mock_eeg))
 If you're using this repository in your research or applications, please cite using the following BibTeX:
 ```bibtex
 @inproceedings{wang2025cbramod,
-    title={CBraMod: A Criss-Cross Brain Foundation Model for EEG Decoding},
+    title={{CB}raMod: A Criss-Cross Brain Foundation Model for {EEG} Decoding},
     author={Jiquan Wang and Sha Zhao and Zhiling Luo and Yangxuan Zhou and Haiteng Jiang and Shijian Li and Tao Li and Gang Pan},
     booktitle={The Thirteenth International Conference on Learning Representations},
     year={2025},
