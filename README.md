@@ -42,7 +42,7 @@ You can pretrain CBraMod on our pretraining dataset or your custom pretraining d
 ```bash
 python pretrain_main.py
 ```
-
+We have released a pretrained checkpoint on [Hugginface🤗](https://huggingface.co/weighting666/CBraMod).
 
 ## ⛵ How to Finetune
 You can finetune CBraMod on our selected downstream datasets using the following code:
