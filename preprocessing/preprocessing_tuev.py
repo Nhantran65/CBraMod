@@ -109,6 +109,8 @@ def convert_signals(signals, Rawdata):
 
 def readEDF(fileName):
     Rawdata = mne.io.read_raw_edf(fileName)
+    Rawdata.filter(l_freq=0.3, h_freq=75)
+    Rawdata.notch_filter((60))
     signals, times = Rawdata[:]
     RecFile = fileName[0:-3] + "rec"
     eventData = np.genfromtxt(RecFile, delimiter=",")

@@ -54,6 +54,8 @@ def split_and_dump(params):
             file_path = os.path.join(fetch_folder, file)
             raw = mne.io.read_raw_edf(file_path, preload=True)
             raw.resample(200)
+            raw.filter(l_freq=0.3, h_freq=75)
+            raw.notch_filter((60))
             ch_name = raw.ch_names
             raw_data = raw.get_data()
             channeled_data = raw_data.copy()[:16]
