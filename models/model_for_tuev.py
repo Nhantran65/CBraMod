@@ -1,8 +1,6 @@
 import torch
 import torch.nn as nn
-from torcheeg.models import EEGNet, FBCCNN, VanillaTransformer, TSCeption, STNet, CCNN, LSTM, ArjunViT, DGCNN, LGGNet
-from torcheeg.models.pyg import *
-from torcheeg.datasets.constants.emotion_recognition.deap import DEAP_GENERAL_REGION_LIST, DEAP_STANDARD_ADJACENCY_MATRIX
+
 from .cbramod import CBraMod
 
 

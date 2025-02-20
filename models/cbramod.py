@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from torcheeg.models.transformer import ViT
+
 from models.criss_cross_transformer import TransformerEncoderLayer, TransformerEncoder
 
 
