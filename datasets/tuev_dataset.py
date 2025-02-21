@@ -49,7 +49,7 @@ class LoadDataset(object):
         test_files = os.listdir(os.path.join(self.datasets_dir, "processed_eval"))
 
         val_sub = np.random.choice(train_sub, size=int(
-            len(train_sub) * 0.1), replace=False)
+            len(train_sub) * 0.2), replace=False)
         train_sub = list(set(train_sub) - set(val_sub))
         val_files = [f for f in train_files if f.split("_")[0] in val_sub]
         train_files = [f for f in train_files if f.split("_")[0] in train_sub]
