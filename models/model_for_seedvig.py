@@ -18,10 +18,10 @@ class Model(nn.Module):
         self.backbone.proj_out = nn.Sequential()
         self.classifier = nn.Sequential(
             nn.Linear(17*8*200, 8*200),
-            nn.GELU(),
+            nn.ELU(),
             nn.Dropout(param.dropout),
             nn.Linear(8*200, 200),
-            nn.GELU(),
+            nn.ELU(),
             nn.Dropout(param.dropout),
             nn.Linear(200, 1)
         )

@@ -18,20 +18,21 @@ class Model(nn.Module):
             self.backbone.load_state_dict(torch.load(param.foundation_dir, map_location=map_location))
         self.backbone.proj_out = nn.Identity()
 
-        self.feed_forward = nn.Sequential(
+        self.classifier = nn.Sequential(
             nn.Linear(32 * 10 * 200, 10 * 200),
             nn.GELU(),
             nn.Dropout(param.dropout),
             nn.Linear(10 * 200, 200),
+            nn.ELU(),
+            nn.Dropout(param.dropout),
+            nn.Linear(200, param.num_of_classes)
         )
-        self.classifier = nn.Linear(200, param.num_of_classes)
 
     def forward(self, x):
         # x = x / 100
         bz, ch_num, seq_len, patch_size = x.shape
         feats = self.backbone(x)
         out = feats.contiguous().view(bz, ch_num*seq_len*200)
-        out = self.feed_forward(out)
         out = self.classifier(out)
         return out
 

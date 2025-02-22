@@ -20,10 +20,10 @@ class Model(nn.Module):
         # self.attn = nn.MultiheadAttention(200, num_heads=8, dropout=0.1)
         self.classifier = nn.Sequential(
             nn.Linear(16*5*200, 5*200),
-            nn.GELU(),
+            nn.ELU(),
             nn.Dropout(param.dropout),
             nn.Linear(5*200, 200),
-            nn.GELU(),
+            nn.ELU(),
             nn.Dropout(param.dropout),
             nn.Linear(200, param.num_of_classes)
         )

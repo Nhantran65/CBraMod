@@ -18,9 +18,9 @@ class Model(nn.Module):
         self.backbone.proj_out = nn.Sequential()
         self.classifier = nn.Sequential(
             nn.Linear(64*3*200, 3*200),
-            nn.GELU(),
+            nn.ELU(),
             nn.Linear(3*200, 200),
-            nn.GELU(),
+            nn.ELU(),
             nn.Linear(200, param.num_of_classes)
         )
 
