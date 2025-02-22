@@ -20,7 +20,7 @@ class Model(nn.Module):
 
         self.classifier = nn.Sequential(
             nn.Linear(32 * 10 * 200, 10 * 200),
-            nn.GELU(),
+            nn.ELU(),
             nn.Dropout(param.dropout),
             nn.Linear(10 * 200, 200),
             nn.ELU(),
