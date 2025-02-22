@@ -43,20 +43,6 @@ class LoadDataset(object):
         self.datasets_dir = params.datasets_dir
 
     def get_data_loader(self):
-        # train_files = os.listdir(os.path.join(self.datasets_dir, "processed_train"))
-        # train_sub = list(set([f.split("_")[0] for f in train_files]))
-        # print("train sub", len(train_sub))
-        # test_files = os.listdir(os.path.join(self.datasets_dir, "processed_eval"))
-        #
-        # val_sub = np.random.choice(train_sub, size=int(
-        #     len(train_sub) * 0.2), replace=False)
-        # train_sub = list(set(train_sub) - set(val_sub))
-        # val_files = [f for f in train_files if f.split("_")[0] in val_sub]
-        # train_files = [f for f in train_files if f.split("_")[0] in train_sub]
-        #
-        # train_set = CustomDataset(os.path.join(self.datasets_dir, "processed_train"), train_files)
-        # val_set = CustomDataset(os.path.join(self.datasets_dir, "processed_train"), val_files)
-        # test_set = CustomDataset(os.path.join(self.datasets_dir, "processed_eval"), test_files)
         train_files = os.listdir(os.path.join(self.datasets_dir, "processed_train"))
         val_files = os.listdir(os.path.join(self.datasets_dir, "processed_eval"))
         test_files = os.listdir(os.path.join(self.datasets_dir, "processed_test"))
