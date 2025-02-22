@@ -16,8 +16,6 @@ class CustomDataset(Dataset):
     ):
         super(CustomDataset, self).__init__()
         self.files = [os.path.join(data_dir, mode, file) for file in os.listdir(os.path.join(data_dir, mode))]
-        if mode=='train':
-            self.files = self.files[:50000]
 
 
     def __len__(self):
@@ -30,7 +28,7 @@ class CustomDataset(Dataset):
         label = data_dict['y']
         data = signal.resample(data, 2000, axis=-1)
         data = data.reshape(16, 10, 200)
-        return data*10000, label
+        return data/100, label
 
     def collate(self, batch):
         x_data = np.array([x[0] for x in batch])

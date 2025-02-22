@@ -57,7 +57,7 @@ def split_and_dump(params):
             raw.filter(l_freq=0.3, h_freq=75)
             raw.notch_filter((60))
             ch_name = raw.ch_names
-            raw_data = raw.get_data()
+            raw_data = raw.get_data(units='uV')
             channeled_data = raw_data.copy()[:16]
             try:
                 channeled_data[0] = (
@@ -146,6 +146,8 @@ if __name__ == "__main__":
     root = "/data/datasets/BigDownstream/TUAB/edf"
     channel_std = "01_tcp_ar"
 
+    seed = 4523
+    np.random.seed(seed)
     # train, val abnormal subjects
     train_val_abnormal = os.path.join(root, "train", "abnormal", channel_std)
     train_val_a_sub = list(
@@ -177,20 +179,20 @@ if __name__ == "__main__":
     test_n_sub = list(set([item.split("_")[0] for item in os.listdir(test_normal)]))
 
     # create the train, val, test sample folder
-    if not os.path.exists(os.path.join(root, "processed")):
-        os.makedirs(os.path.join(root, "processed"))
+    if not os.path.exists(os.path.join(root, "process_cbramod")):
+        os.makedirs(os.path.join(root, "process_cbramod"))
 
-    if not os.path.exists(os.path.join(root, "processed", "train")):
-        os.makedirs(os.path.join(root, "processed", "train"))
-    train_dump_folder = os.path.join(root, "processed", "train")
+    if not os.path.exists(os.path.join(root, "process_cbramod", "train")):
+        os.makedirs(os.path.join(root, "process_cbramod", "train"))
+    train_dump_folder = os.path.join(root, "process_cbramod", "train")
 
-    if not os.path.exists(os.path.join(root, "processed", "val")):
-        os.makedirs(os.path.join(root, "processed", "val"))
-    val_dump_folder = os.path.join(root, "processed", "val")
+    if not os.path.exists(os.path.join(root, "process_cbramod", "val")):
+        os.makedirs(os.path.join(root, "process_cbramod", "val"))
+    val_dump_folder = os.path.join(root, "process_cbramod", "val")
 
-    if not os.path.exists(os.path.join(root, "processed", "test")):
-        os.makedirs(os.path.join(root, "processed", "test"))
-    test_dump_folder = os.path.join(root, "processed", "test")
+    if not os.path.exists(os.path.join(root, "process_cbramod", "test")):
+        os.makedirs(os.path.join(root, "process_cbramod", "test"))
+    test_dump_folder = os.path.join(root, "process_cbramod", "test")
 
     # fetch_folder, sub, dump_folder, labels
     parameters = []
@@ -211,3 +213,5 @@ if __name__ == "__main__":
     with Pool(processes=24) as pool:
         # Use the pool.map function to apply the square function to each element in the numbers list
         result = pool.map(split_and_dump, parameters)
+
+    print('Done!')

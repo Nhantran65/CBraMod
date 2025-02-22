@@ -11,7 +11,7 @@ https://github.com/Abhishaike/EEG_Event_Classification
 
 def BuildEvents(signals, times, EventData):
     [numEvents, z] = EventData.shape  # numEvents is equal to # of rows of the .rec file
-    fs = 250.0
+    fs = 200.0
     [numChan, numPoints] = signals.shape
     # for i in range(numChan):  # standardize each channel
     #     if np.std(signals[i, :]) > 0:
@@ -109,9 +109,12 @@ def convert_signals(signals, Rawdata):
 
 def readEDF(fileName):
     Rawdata = mne.io.read_raw_edf(fileName, preload=True)
+    Rawdata.resample(200)
     Rawdata.filter(l_freq=0.3, h_freq=75)
     Rawdata.notch_filter((60))
-    signals, times = Rawdata[:]
+
+    _, times = Rawdata[:]
+    signals = Rawdata.get_data(units='uV')
     RecFile = fileName[0:-3] + "rec"
     eventData = np.genfromtxt(RecFile, delimiter=",")
     Rawdata.close()
@@ -162,7 +165,7 @@ TUEV dataset is downloaded from https://isip.piconepress.com/projects/tuh_eeg/ht
 """
 
 root = "/data/zcb/data/TUEV/edf"
-target = "/data/datasets/BigDownstream/TUEV"
+target = "/data/datasets/BigDownstream/TUEV_cbramod_2"
 train_out_dir = os.path.join(target, "processed_train")
 eval_out_dir = os.path.join(target, "processed_eval")
 if not os.path.exists(train_out_dir):
@@ -171,7 +174,7 @@ if not os.path.exists(eval_out_dir):
     os.makedirs(eval_out_dir)
 
 BaseDirTrain = os.path.join(root, "train")
-fs = 250
+fs = 200
 TrainFeatures = np.empty(
     (0, 16, fs)
 )  # 0 for lack of intialization, 22 for channels, fs for num of points
@@ -182,7 +185,7 @@ load_up_objects(
 )
 
 BaseDirEval = os.path.join(root, "eval")
-fs = 250
+fs = 200
 EvalFeatures = np.empty(
     (0, 16, fs)
 )  # 0 for lack of intialization, 22 for channels, fs for num of points
@@ -191,3 +194,37 @@ EvalOffendingChannel = np.empty([0, 1])
 load_up_objects(
     BaseDirEval, EvalFeatures, EvalLabels, EvalOffendingChannel, eval_out_dir
 )
+
+
+#transfer to train, eval, and test
+root = "/data/datasets/BigDownstream/TUEV_cbramod_2"
+seed = 4523
+np.random.seed(seed)
+
+train_files = os.listdir(os.path.join(root, "processed_train"))
+train_sub = list(set([f.split("_")[0] for f in train_files]))
+print("train sub", len(train_sub))
+test_files = os.listdir(os.path.join(root, "processed_eval"))
+
+val_sub = np.random.choice(train_sub, size=int(
+    len(train_sub) * 0.2), replace=False)
+train_sub = list(set(train_sub) - set(val_sub))
+val_files = [f for f in train_files if f.split("_")[0] in val_sub]
+train_files = [f for f in train_files if f.split("_")[0] in train_sub]
+
+
+if not os.path.exists(os.path.join(root, 'processed', 'processed_train')):
+    os.makedirs(os.path.join(root, 'processed', 'processed_train'))
+if not os.path.exists(os.path.join(root, 'processed', 'processed_eval')):
+    os.makedirs(os.path.join(root, 'processed', 'processed_eval'))
+if not os.path.exists(os.path.join(root, 'processed', 'processed_test')):
+    os.makedirs(os.path.join(root, 'processed', 'processed_test'))
+
+for file in tqdm(train_files):
+    os.system(f"cp {os.path.join(root, 'processed_train', file)} {os.path.join(root, 'processed', 'processed_train')}")
+for file in tqdm(val_files):
+    os.system(f"cp {os.path.join(root, 'processed_train', file)} {os.path.join(root, 'processed', 'processed_eval')}")
+for file in tqdm(test_files):
+    os.system(f"cp {os.path.join(root, 'processed_eval', file)} {os.path.join(root, 'processed', 'processed_test')}")
+
+print('Done!')
