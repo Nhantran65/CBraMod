@@ -165,7 +165,7 @@ TUEV dataset is downloaded from https://isip.piconepress.com/projects/tuh_eeg/ht
 """
 
 root = "/data/zcb/data/TUEV/edf"
-target = "/data/datasets/BigDownstream/TUEV_cbramod_2"
+target = "/data/datasets/BigDownstream/TUEV_cbramod"
 train_out_dir = os.path.join(target, "processed_train")
 eval_out_dir = os.path.join(target, "processed_eval")
 if not os.path.exists(train_out_dir):
@@ -197,7 +197,7 @@ load_up_objects(
 
 
 #transfer to train, eval, and test
-root = "/data/datasets/BigDownstream/TUEV_cbramod_2"
+root = "/data/datasets/BigDownstream/TUEV_cbramod"
 seed = 4523
 np.random.seed(seed)
 
