@@ -35,19 +35,37 @@ class Trainer(object):
 
         self.best_model_states = None
 
-        if params.frozen:
-            for name, param in self.model.named_parameters():
-                if "backbone" in name:
+        backbone_params = []
+        other_params = []
+        for name, param in self.model.named_parameters():
+            if "backbone" in name:
+                backbone_params.append(param)
+
+                if params.frozen:
                     param.requires_grad = False
                 else:
                     param.requires_grad = True
+            else:
+                other_params.append(param)
 
         if self.params.optimizer == 'AdamW':
-            self.optimizer = torch.optim.AdamW(self.model.parameters(), lr=self.params.lr,
-                                               weight_decay=self.params.weight_decay)
+            if self.params.multi_lr: # set different learning rates for different modules
+                self.optimizer = torch.optim.AdamW([
+                    {'params': backbone_params, 'lr': self.params.lr},
+                    {'params': other_params, 'lr': self.params.lr * 5}
+                ], weight_decay=self.params.weight_decay)
+            else:
+                self.optimizer = torch.optim.AdamW(self.model.parameters(), lr=self.params.lr,
+                                                   weight_decay=self.params.weight_decay)
         else:
-            self.optimizer = torch.optim.SGD(self.model.parameters(), lr=self.params.lr, momentum=0.9,
-                                             weight_decay=self.params.weight_decay)
+            if self.params.multi_lr:
+                self.optimizer = torch.optim.SGD([
+                    {'params': backbone_params, 'lr': self.params.lr},
+                    {'params': other_params, 'lr': self.params.lr * 5}
+                ],  momentum=0.9, weight_decay=self.params.weight_decay)
+            else:
+                self.optimizer = torch.optim.SGD(self.model.parameters(), lr=self.params.lr, momentum=0.9,
+                                                 weight_decay=self.params.weight_decay)
 
         self.data_length = len(self.data_loader['train'])
         self.optimizer_scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(

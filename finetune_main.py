@@ -15,7 +15,7 @@ from models import model_for_faced, model_for_seedv, model_for_physio, model_for
 def main():
     parser = argparse.ArgumentParser(description='Big model downstream')
     parser.add_argument('--seed', type=int, default=42, help='random seed (default: 0)')
-    parser.add_argument('--cuda', type=int, default=2, help='cuda number (default: 1)')
+    parser.add_argument('--cuda', type=int, default=0, help='cuda number (default: 1)')
     parser.add_argument('--epochs', type=int, default=50, help='number of epochs (default: 5)')
     parser.add_argument('--batch_size', type=int, default=64, help='batch size for training (default: 32)')
     parser.add_argument('--lr', type=float, default=1e-4, help='learning rate (default: 1e-3)')
@@ -36,6 +36,7 @@ def main():
 
     parser.add_argument('--num_workers', type=int, default=16, help='num_workers')
     parser.add_argument('--label_smoothing', type=float, default=0.1, help='label_smoothing')
+    parser.add_argument('--multi_lr', type=bool, default=True, help='multi_lr') # set different learning rates for different modules
     parser.add_argument('--frozen', type=bool,
                         default=False, help='frozen')
     parser.add_argument('--use_pretrained_weights', type=bool,
