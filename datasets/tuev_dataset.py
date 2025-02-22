@@ -48,8 +48,8 @@ class LoadDataset(object):
         test_files = os.listdir(os.path.join(self.datasets_dir, "processed_test"))
 
         train_set = CustomDataset(os.path.join(self.datasets_dir, "processed_train"), train_files)
-        val_set = CustomDataset(os.path.join(self.datasets_dir, "processed_train"), val_files)
-        test_set = CustomDataset(os.path.join(self.datasets_dir, "processed_eval"), test_files)
+        val_set = CustomDataset(os.path.join(self.datasets_dir, "processed_eval"), val_files)
+        test_set = CustomDataset(os.path.join(self.datasets_dir, "processed_test"), test_files)
 
         print(len(train_set), len(val_set), len(test_set))
         print(len(train_set)+len(val_set)+len(test_set))
