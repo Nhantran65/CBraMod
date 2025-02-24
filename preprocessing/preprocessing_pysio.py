@@ -35,7 +35,7 @@ selected_channels = ['Fc5.', 'Fc3.', 'Fc1.', 'Fcz.', 'Fc2.', 'Fc4.', 'Fc6.', 'C5
                      'P3..', 'P1..', 'Pz..', 'P2..', 'P4..', 'P6..', 'P8..', 'Po7.', 'Po3.', 'Poz.', 'Po4.', 'Po8.',
                      'O1..', 'Oz..', 'O2..', 'Iz..']
 
-db = lmdb.open('/data/datasets/eeg-motor-movementimagery-dataset-1.0.0/processed_4_40hz', map_size=4614542346)
+db = lmdb.open('/data/datasets/eeg-motor-movementimagery-dataset-1.0.0/processed_average', map_size=4614542346)
 
 for files_key in files_dict.keys():
     for file in files_dict[files_key]:
@@ -46,7 +46,7 @@ for files_key in files_dict.keys():
                 print('interpolate_bads')
                 raw.interpolate_bads()
             raw.set_eeg_reference(ref_channels='average')
-            raw.filter(l_freq=4, h_freq=40)
+            raw.filter(l_freq=0.3, h_freq=None)
             raw.notch_filter((60))
             raw.resample(200)
             events_from_annot, event_dict = mne.events_from_annotations(raw)
