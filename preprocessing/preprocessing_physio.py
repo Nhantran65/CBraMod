@@ -6,7 +6,7 @@ import pickle
 import numpy as np
 import mne
 
-tasks = ['04', '06', '08', '10', '12', '14']
+tasks = ['04', '06', '08', '10', '12', '14'] # select the data for motor imagery
 
 root_dir = '/data/datasets/eeg-motor-movementimagery-dataset-1.0.0/files'
 files = [file for file in os.listdir(root_dir)]
