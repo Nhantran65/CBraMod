@@ -41,10 +41,11 @@ The camera-ready version of the paper will be available at [OpenReview](https://
 
 
 ## 🏞️ Environment Setup
-Install required packages:
-- Install [Python](https://www.python.org/downloads/)
-- Install [PyTorch](https://pytorch.org/get-started/locally/)
-- Install other requirements:
+Install [Python](https://www.python.org/downloads/).
+
+Install [PyTorch](https://pytorch.org/get-started/locally/).
+
+Install other requirements:
 ```commandline
 pip install -r requirements.txt
 ``` 
