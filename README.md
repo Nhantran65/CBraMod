@@ -21,6 +21,7 @@ _A Criss-Cross Brain Foundation Model for EEG Decoding_
 
 <p align="center">
     🔍&nbsp;<a href="#-about">About</a>
+    | 🏞️ <a href="#-environment">Environment</a>
     | 🚢&nbsp;<a href="#-how-to-pretrain">How to Pretrain</a>
     | ⛵&nbsp;<a href="#-how-to-finetune">How to Finetune</a>
     | 🚀&nbsp;<a href="#-quick-start">Quick Start</a>
@@ -36,6 +37,19 @@ The camera-ready version of the paper will be available at [OpenReview](https://
 <div align="center">
 <img src="figure/model.png" style="width:100%;" />
 </div>
+
+## 🏞️ Environment
+
+Install required packages:
+- Install [Python](https://www.python.org/downloads/)
+
+- Install [PyTorch](https://pytorch.org/get-started/locally/)
+
+- Install other requirements:
+
+```commandline
+pip install -r requirements.txt
+``` 
 
 
 ## 🚢 How to Pretrain
