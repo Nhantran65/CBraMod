@@ -21,12 +21,11 @@ _A Criss-Cross Brain Foundation Model for EEG Decoding_
 
 <p align="center">
     🔍&nbsp;<a href="#-about">About</a>
-    | 🏞️&nbsp;<a href="#-environment">Environment</a>
+    | 🏞️&nbsp;<a href="#-environment-setup">Environment Setup</a>
     | 🚢&nbsp;<a href="#-how-to-pretrain">How to Pretrain</a>
     | ⛵&nbsp;<a href="#-how-to-finetune">How to Finetune</a>
     | 🚀&nbsp;<a href="#-quick-start">Quick Start</a>
     | 🔗&nbsp;<a href="#-citation">Citation</a>
-    | ⭐&nbsp;<a href="#-star-history">Star History</a>
 </p>
 
 🔥 NEWS: The paper "_CBraMod: A Criss-Cross Brain Foundation Model for EEG Decoding_" has been accepted by ICLR 2025!
@@ -41,7 +40,7 @@ The camera-ready version of the paper will be available at [OpenReview](https://
 
 
 
-## 🏞️ Environment
+## 🏞️ Environment Setup
 Install required packages:
 - Install [Python](https://www.python.org/downloads/)
 - Install [PyTorch](https://pytorch.org/get-started/locally/)
