@@ -25,13 +25,13 @@ def main():
     parser.add_argument('--dropout', type=float, default=0.1, help='dropout')
 
     """############ Downstream dataset settings ############"""
-    parser.add_argument('--downstream_dataset', type=str, default='SEED-V',
+    parser.add_argument('--downstream_dataset', type=str, default='FACED',
                         help='[FACED, SEED-V, PhysioNet-MI, SHU-MI, ISRUC, CHB-MIT, BCIC2020-3, Mumtaz2016, SEED-VIG, MentalArithmetic, TUEV, TUAB, BCIC-IV-2a]')
     parser.add_argument('--datasets_dir', type=str,
-                        default='/data/datasets/BigDownstream/SEED-V/processed_average',
+                        default='/data/datasets/BigDownstream/Faced/processed',
                         help='datasets_dir')
-    parser.add_argument('--num_of_classes', type=int, default=5, help='number of classes')
-    parser.add_argument('--model_dir', type=str, default='/data/wjq/models_weights/Big/BigSEEDV', help='model_dir')
+    parser.add_argument('--num_of_classes', type=int, default=9, help='number of classes')
+    parser.add_argument('--model_dir', type=str, default='/data/wjq/models_weights/Big/BigFACED', help='model_dir')
     """############ Downstream dataset settings ############"""
 
     parser.add_argument('--num_workers', type=int, default=16, help='num_workers')
