@@ -17,7 +17,10 @@ class Model(nn.Module):
             self.backbone.load_state_dict(torch.load(param.foundation_dir, map_location=map_location))
         self.backbone.proj_out = nn.Identity()
         self.classifier = nn.Sequential(
-            nn.Linear(62*1*200, 200),
+            nn.Linear(62*1*200, 4*200),
+            nn.ELU(),
+            nn.Dropout(param.dropout),
+            nn.Linear(4*200, 200),
             nn.ELU(),
             nn.Dropout(param.dropout),
             nn.Linear(200, param.num_of_classes)
@@ -30,4 +33,3 @@ class Model(nn.Module):
         feats = feats.contiguous().view(bz, ch_num*seq_len*200)
         out = self.classifier(feats)
         return out
-
