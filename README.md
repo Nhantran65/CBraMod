@@ -39,7 +39,6 @@ The camera-ready version of the paper will be available at [OpenReview](https://
 </div>
 
 ## 🏞️ Environment
-
 Install required packages:
 - Install [Python](https://www.python.org/downloads/)
 
