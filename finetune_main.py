@@ -14,29 +14,30 @@ from models import model_for_faced, model_for_seedv, model_for_physio, model_for
 
 def main():
     parser = argparse.ArgumentParser(description='Big model downstream')
-    parser.add_argument('--seed', type=int, default=42, help='random seed (default: 0)')
+    parser.add_argument('--seed', type=int, default=3407, help='random seed (default: 0)')
     parser.add_argument('--cuda', type=int, default=0, help='cuda number (default: 1)')
     parser.add_argument('--epochs', type=int, default=50, help='number of epochs (default: 5)')
     parser.add_argument('--batch_size', type=int, default=64, help='batch size for training (default: 32)')
-    parser.add_argument('--lr', type=float, default=1e-4, help='learning rate (default: 1e-3)')
+    parser.add_argument('--lr', type=float, default=5e-4, help='learning rate (default: 1e-3)')
     parser.add_argument('--weight_decay', type=float, default=5e-2, help='weight decay (default: 1e-2)')
     parser.add_argument('--optimizer', type=str, default='AdamW', help='optimizer (AdamW, SGD)')
     parser.add_argument('--clip_value', type=float, default=1, help='clip_value')
     parser.add_argument('--dropout', type=float, default=0.1, help='dropout')
 
     """############ Downstream dataset settings ############"""
-    parser.add_argument('--downstream_dataset', type=str, default='FACED',
+    parser.add_argument('--downstream_dataset', type=str, default='SEED-V',
                         help='[FACED, SEED-V, PhysioNet-MI, SHU-MI, ISRUC, CHB-MIT, BCIC2020-3, Mumtaz2016, SEED-VIG, MentalArithmetic, TUEV, TUAB, BCIC-IV-2a]')
     parser.add_argument('--datasets_dir', type=str,
-                        default='/data/datasets/BigDownstream/Faced/processed',
+                        default='/data/datasets/BigDownstream/SEED-V/processed_average',
                         help='datasets_dir')
-    parser.add_argument('--num_of_classes', type=int, default=9, help='number of classes')
-    parser.add_argument('--model_dir', type=str, default='/data/wjq/models_weights/Big/BigFaced', help='model_dir')
+    parser.add_argument('--num_of_classes', type=int, default=5, help='number of classes')
+    parser.add_argument('--model_dir', type=str, default='/data/wjq/models_weights/Big/BigSEEDV', help='model_dir')
     """############ Downstream dataset settings ############"""
 
     parser.add_argument('--num_workers', type=int, default=16, help='num_workers')
     parser.add_argument('--label_smoothing', type=float, default=0.1, help='label_smoothing')
-    parser.add_argument('--multi_lr', type=bool, default=True, help='multi_lr') # set different learning rates for different modules
+    parser.add_argument('--multi_lr', type=bool, default=False,
+                        help='multi_lr')  # set different learning rates for different modules
     parser.add_argument('--frozen', type=bool,
                         default=False, help='frozen')
     parser.add_argument('--use_pretrained_weights', type=bool,
