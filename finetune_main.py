@@ -23,18 +23,18 @@ def main():
     parser.add_argument('--optimizer', type=str, default='AdamW', help='optimizer (AdamW, SGD)')
     parser.add_argument('--clip_value', type=float, default=1, help='clip_value')
     parser.add_argument('--dropout', type=float, default=0.1, help='dropout')
-    parser.add_argument('--classifier', type=str, default='all_patch_reps',
+    parser.add_argument('--classifier', type=str, default='avgpooling_patch_reps',
                         help='[all_patch_reps, avgpooling_patch_reps]')
     # avgpooling_patch_reps: use average pooling for patch features; all_patch_reps: use all patch features
 
     """############ Downstream dataset settings ############"""
-    parser.add_argument('--downstream_dataset', type=str, default='FACED',
+    parser.add_argument('--downstream_dataset', type=str, default='TUAB',
                         help='[FACED, SEED-V, PhysioNet-MI, SHU-MI, ISRUC, CHB-MIT, BCIC2020-3, Mumtaz2016, SEED-VIG, MentalArithmetic, TUEV, TUAB, BCIC-IV-2a]')
     parser.add_argument('--datasets_dir', type=str,
-                        default='/data/datasets/BigDownstream/Faced/processed',
+                        default='/data/datasets/BigDownstream/TUAB/edf/process_refine',
                         help='datasets_dir')
-    parser.add_argument('--num_of_classes', type=int, default=9, help='number of classes')
-    parser.add_argument('--model_dir', type=str, default='/data/wjq/models_weights/Big/BigFaced', help='model_dir')
+    parser.add_argument('--num_of_classes', type=int, default=2, help='number of classes')
+    parser.add_argument('--model_dir', type=str, default='/data/wjq/models_weights/Big/BigTUAB', help='model_dir')
     """############ Downstream dataset settings ############"""
 
     parser.add_argument('--num_workers', type=int, default=16, help='num_workers')
@@ -46,7 +46,6 @@ def main():
     parser.add_argument('--use_pretrained_weights', type=bool,
                         default=True, help='use_pretrained_weights')
     parser.add_argument('--foundation_dir', type=str,
-                        # default='/data/wjq/models_weights/Big/0.4/epoch40_loss0.001386052928864956.pth',
                         default='pretrained_weights/pretrained_weights.pth',
                         help='foundation_dir')
 
