@@ -146,29 +146,36 @@ if __name__ == "__main__":
     root = "/data/datasets/BigDownstream/TUAB/edf"
     channel_std = "01_tcp_ar"
 
-    seed = 4523
-    np.random.seed(seed)
+    # seed = 4523
+    # np.random.seed(seed)
     # train, val abnormal subjects
     train_val_abnormal = os.path.join(root, "train", "abnormal", channel_std)
     train_val_a_sub = list(
         set([item.split("_")[0] for item in os.listdir(train_val_abnormal)])
     )
-    np.random.shuffle(train_val_a_sub)
+    train_val_a_sub.sort(key=lambda x: x)
+
     train_a_sub, val_a_sub = (
         train_val_a_sub[: int(len(train_val_a_sub) * 0.8)],
         train_val_a_sub[int(len(train_val_a_sub) * 0.8) :],
     )
+    print('train_a_sub:', train_a_sub)
+    print('val_a_sub:', val_a_sub)
 
     # train, val normal subjects
     train_val_normal = os.path.join(root, "train", "normal", channel_std)
     train_val_n_sub = list(
         set([item.split("_")[0] for item in os.listdir(train_val_normal)])
     )
-    np.random.shuffle(train_val_n_sub)
+    train_val_n_sub.sort(key=lambda x: x)
+
     train_n_sub, val_n_sub = (
         train_val_n_sub[: int(len(train_val_n_sub) * 0.8)],
         train_val_n_sub[int(len(train_val_n_sub) * 0.8) :],
     )
+    print('train_n_sub:', train_n_sub)
+    print('val_n_sub:', val_n_sub)
+
 
     # test abnormal subjects
     test_abnormal = os.path.join(root, "eval", "abnormal", channel_std)
@@ -179,20 +186,20 @@ if __name__ == "__main__":
     test_n_sub = list(set([item.split("_")[0] for item in os.listdir(test_normal)]))
 
     # create the train, val, test sample folder
-    if not os.path.exists(os.path.join(root, "process_cbramod")):
-        os.makedirs(os.path.join(root, "process_cbramod"))
+    if not os.path.exists(os.path.join(root, "process_refine")):
+        os.makedirs(os.path.join(root, "process_refine"))
 
-    if not os.path.exists(os.path.join(root, "process_cbramod", "train")):
-        os.makedirs(os.path.join(root, "process_cbramod", "train"))
-    train_dump_folder = os.path.join(root, "process_cbramod", "train")
+    if not os.path.exists(os.path.join(root, "process_refine", "train")):
+        os.makedirs(os.path.join(root, "process_refine", "train"))
+    train_dump_folder = os.path.join(root, "process_refine", "train")
 
-    if not os.path.exists(os.path.join(root, "process_cbramod", "val")):
-        os.makedirs(os.path.join(root, "process_cbramod", "val"))
-    val_dump_folder = os.path.join(root, "process_cbramod", "val")
+    if not os.path.exists(os.path.join(root, "process_refine", "val")):
+        os.makedirs(os.path.join(root, "process_refine", "val"))
+    val_dump_folder = os.path.join(root, "process_refine", "val")
 
-    if not os.path.exists(os.path.join(root, "process_cbramod", "test")):
-        os.makedirs(os.path.join(root, "process_cbramod", "test"))
-    test_dump_folder = os.path.join(root, "process_cbramod", "test")
+    if not os.path.exists(os.path.join(root, "process_refine", "test")):
+        os.makedirs(os.path.join(root, "process_refine", "test"))
+    test_dump_folder = os.path.join(root, "process_refine", "test")
 
     # fetch_folder, sub, dump_folder, labels
     parameters = []

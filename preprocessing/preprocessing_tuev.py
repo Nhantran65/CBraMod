@@ -165,9 +165,11 @@ TUEV dataset is downloaded from https://isip.piconepress.com/projects/tuh_eeg/ht
 """
 
 root = "/data/zcb/data/TUEV/edf"
-target = "/data/datasets/BigDownstream/TUEV_cbramod"
+target = "/data/datasets/BigDownstream/TUEV_refine"
+
 train_out_dir = os.path.join(target, "processed_train")
 eval_out_dir = os.path.join(target, "processed_eval")
+
 if not os.path.exists(train_out_dir):
     os.makedirs(train_out_dir)
 if not os.path.exists(eval_out_dir):
@@ -197,18 +199,22 @@ load_up_objects(
 
 
 #transfer to train, eval, and test
-root = "/data/datasets/BigDownstream/TUEV_cbramod"
-seed = 4523
-np.random.seed(seed)
+root = "/data/datasets/BigDownstream/TUEV_refine"
+# seed = 4523
+# np.random.seed(seed)
 
 train_files = os.listdir(os.path.join(root, "processed_train"))
-train_sub = list(set([f.split("_")[0] for f in train_files]))
-print("train sub", len(train_sub))
+train_val_sub = list(set([f.split("_")[0] for f in train_files]))
+print("train val sub:", train_val_sub)
 test_files = os.listdir(os.path.join(root, "processed_eval"))
 
-val_sub = np.random.choice(train_sub, size=int(
-    len(train_sub) * 0.2), replace=False)
-train_sub = list(set(train_sub) - set(val_sub))
+train_val_sub.sort(key=lambda x: x)
+
+train_sub = train_val_sub[: int(len(train_val_sub) * 0.8)]
+val_sub = train_val_sub[int(len(train_val_sub) * 0.8) :]
+print("train sub:", train_sub)
+print("val sub:", val_sub)
+
 val_files = [f for f in train_files if f.split("_")[0] in val_sub]
 train_files = [f for f in train_files if f.split("_")[0] in train_sub]
 
