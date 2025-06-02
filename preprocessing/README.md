@@ -13,15 +13,20 @@ To fully address this issue, I have updated the preprocessing code for **TUAB** 
 
 For accurate and fair comparisons, it is **strongly recommended** to re-implement existing methods such as **BIOT**, **LaBraM**, and **CBraMod** **on the same fixed splits**.
 
+> ⚠️ **Please note**: The **TUAB version** used in our experiments is **3.0.1**, and the **TUEV version** is **2.0.0**. Updates to the datasets may result in changes to the total number of samples.  
+>  
+> 📌 If you are using **different versions** of these datasets, **do not refer to our sample counts**. Instead, **reproduce the results directly on your own data splits**.
+
+
 ### 📊 Current Sample Counts (Updated Preprocessing)
 
-#### **TUAB:**
+#### **TUAB (v3.0.1):**
 - **Train:** 67,436  
 - **Validation:** 15,634  
 - **Test:** 29,421  
 - **Total:** 112,491  
 
-#### **TUEV:**
+#### **TUEV (v2.0.0):**
 - **Train:** 297,103  
 - **Validation:** 75,407  
 - **Test:** 36,945  
