@@ -3,7 +3,7 @@
 ---
 #### June 2, 2025 Update
 
-The previous preprocessing code for the TUAB and TUEV datasets was inherited from the BIOT and LaBraM repositories. These original implementations included random elements in the data splitting process. Even with fixed random seeds, different hardware environments could lead to inconsistent Train/Val/Test splits. This issue has been carried forward into CBraMod.
+The previous preprocessing code for the TUAB and TUEV datasets was inherited from the [BIOT](https://github.com/ycq091044/BIOT) and [LaBraM](https://github.com/935963004/LaBraM) repositories. These original implementations included random elements in the data splitting process. Even with fixed random seeds, different hardware environments could lead to inconsistent Train/Val/Test splits. This issue has been carried forward into CBraMod.
 
 In the performance comparison presented in the CBraMod paper, I directly cited the results reported in the BIOT and LaBraM papers without having access to their exact dataset splits. Therefore, I cannot guarantee that the comparisons were made using the same dataset partitions. As a result, the evaluation may not be entirely fair.
 
