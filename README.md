@@ -22,11 +22,12 @@ _A Criss-Cross Brain Foundation Model for EEG Decoding_
 <p align="center">
     🔍&nbsp;<a href="#-about">About</a>
     | 🔨&nbsp;<a href="#-setup">Setup</a>
-    | 🚢&nbsp;<a href="#-how-to-pretrain">How to Pretrain</a>
-    | ⛵&nbsp;<a href="#-how-to-finetune">How to Finetune</a>
+    | 🚢&nbsp;<a href="#-pretrain">Pretrain</a>
+    | ⛵&nbsp;<a href="#-finetune">Finetune</a>
     | 🚀&nbsp;<a href="#-quick-start">Quick Start</a>
     | 🔗&nbsp;<a href="#-citation">Citation</a>
 </p>
+🔥 NEWS: Thanks to over 100 stars! We've further refined the code for improved stability. Appreciate your patience as we refine the implementation — ongoing EEG research continues to shape the development of a standardized pipeline.
 
 🔥 NEWS: The paper "_CBraMod: A Criss-Cross Brain Foundation Model for EEG Decoding_" has been accepted by ICLR 2025!
 
@@ -51,14 +52,14 @@ pip install -r requirements.txt
 ``` 
 
 
-## 🚢 How to Pretrain
+## 🚢 Pretrain
 You can pretrain CBraMod on our pretraining dataset or your custom pretraining dataset using the following code:
 ```commandline
 python pretrain_main.py
 ```
 We have released a pretrained checkpoint on [Hugginface🤗](https://huggingface.co/weighting666/CBraMod).
 
-## ⛵ How to Finetune
+## ⛵ Finetune
 You can finetune CBraMod on our selected downstream datasets using the following code:
 ```commandline
 python finetune_main.py
