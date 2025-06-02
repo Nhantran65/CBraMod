@@ -12,3 +12,4 @@ scipy
 torchinfo
 tqdm
 umap_learn
+einops
