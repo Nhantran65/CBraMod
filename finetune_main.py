@@ -28,13 +28,13 @@ def main():
     # avgpooling_patch_reps: use average pooling for patch features; all_patch_reps: use all patch features
 
     """############ Downstream dataset settings ############"""
-    parser.add_argument('--downstream_dataset', type=str, default='TUAB',
+    parser.add_argument('--downstream_dataset', type=str, default='FACED',
                         help='[FACED, SEED-V, PhysioNet-MI, SHU-MI, ISRUC, CHB-MIT, BCIC2020-3, Mumtaz2016, SEED-VIG, MentalArithmetic, TUEV, TUAB, BCIC-IV-2a]')
     parser.add_argument('--datasets_dir', type=str,
-                        default='/data/datasets/BigDownstream/TUAB/edf/process_refine',
+                        default='/data/datasets/BigDownstream/Faced/processed',
                         help='datasets_dir')
-    parser.add_argument('--num_of_classes', type=int, default=2, help='number of classes')
-    parser.add_argument('--model_dir', type=str, default='/data/wjq/models_weights/Big/BigTUAB', help='model_dir')
+    parser.add_argument('--num_of_classes', type=int, default=9, help='number of classes')
+    parser.add_argument('--model_dir', type=str, default='/data/wjq/models_weights/Big/BigFaced', help='model_dir')
     """############ Downstream dataset settings ############"""
 
     parser.add_argument('--num_workers', type=int, default=16, help='num_workers')
