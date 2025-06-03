@@ -21,13 +21,14 @@ For accurate and fair comparisons, it is **strongly recommended** to re-implemen
 ### 📊 Current Sample Counts (Updated Preprocessing)
 
 #### **TUAB (v3.0.1):**
-- **Train:** 67,436  
-- **Validation:** 15,634  
-- **Test:** 29,421  
-- **Total:** 112,491  
-
-#### **TUEV (v2.0.0):**
 - **Train:** 297,103  
 - **Validation:** 75,407  
 - **Test:** 36,945  
 - **Total:** 409,455
+
+
+#### **TUEV (v2.0.0):**
+- **Train:** 67,436  
+- **Validation:** 15,634  
+- **Test:** 29,421  
+- **Total:** 112,491  
