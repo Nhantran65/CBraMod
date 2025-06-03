@@ -17,7 +17,7 @@ For accurate and fair comparisons, it is **strongly recommended** to re-implemen
 >  
 > 📌 If you are using **different versions** of these datasets, **do not refer to our sample counts**. Instead, **reproduce the results directly on your own data splits**.
 >
-> ✅ We also provide dataset splits for TUEV v2.0.1 . Please refer to the sample counts below for details. 
+> ✅ We also provide **dataset splits** for **TUEV v2.0.1**. Please refer to the sample counts below for details. 
 
 ### 📊 Current Sample Counts (Updated Preprocessing)
 
