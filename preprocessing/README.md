@@ -16,7 +16,8 @@ For accurate and fair comparisons, it is **strongly recommended** to re-implemen
 > ⚠️ **Please note**: The **TUAB version** used in our experiments is **3.0.1**, and the **TUEV version** is **2.0.0**. Updates to the datasets may result in changes to the total number of samples.  
 >  
 > 📌 If you are using **different versions** of these datasets, **do not refer to our sample counts**. Instead, **reproduce the results directly on your own data splits**.
-
+>
+> ✅ We also provide dataset splits for TUEV v2.0.1 . Please refer to the sample counts below for details. 
 
 ### 📊 Current Sample Counts (Updated Preprocessing)
 
@@ -32,3 +33,10 @@ For accurate and fair comparisons, it is **strongly recommended** to re-implemen
 - **Validation:** 15,634  
 - **Test:** 29,421  
 - **Total:** 112,491  
+
+
+#### **TUEV (v2.0.1):**
+- **Train:** 68,445  
+- **Validation:** 15,487  
+- **Test:** 29,421  
+- **Total:** 113,353  
