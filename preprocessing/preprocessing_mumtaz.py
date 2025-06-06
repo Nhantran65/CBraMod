@@ -53,7 +53,7 @@ print(files_dict['val'])
 print(files_dict['test'])
 
 
-db = lmdb.open('/data/datasets/MDDPHCED/processed_lmdb_30hz', map_size=1273741824)
+db = lmdb.open('/data/datasets/MDDPHCED/processed_lmdb_75hz', map_size=1273741824)
 
 for files_key in files_dict.keys():
     for file in files_dict[files_key]:
@@ -62,7 +62,7 @@ for files_key in files_dict.keys():
         raw.pick_channels(selected_channels, ordered=True)
         print(raw.info['ch_names'])
         raw.resample(200)
-        raw.filter(l_freq=0.3, h_freq=30)
+        raw.filter(l_freq=0.3, h_freq=75)
         raw.notch_filter((50))
         # raw.plot_psd(average=True)
         eeg_array = raw.to_data_frame().values
