@@ -25,6 +25,21 @@ class Model(nn.Module):
                 nn.Linear(200, 1),
                 Rearrange('b 1 -> (b 1)'),
             )
+        elif param.classifier == 'all_patch_reps_onelayer':
+            self.classifier = nn.Sequential(
+                Rearrange('b c s d -> b (c s d)'),
+                nn.Linear(16 * 10 * 200, 1),
+                Rearrange('b 1 -> (b 1)'),
+            )
+        elif param.classifier == 'all_patch_reps_twolayer':
+            self.classifier = nn.Sequential(
+                Rearrange('b c s d -> b (c s d)'),
+                nn.Linear(16 * 10 * 200, 200),
+                nn.ELU(),
+                nn.Dropout(param.dropout),
+                nn.Linear(200, 1),
+                Rearrange('b 1 -> (b 1)'),
+            )
         elif param.classifier == 'all_patch_reps':
             self.classifier = nn.Sequential(
                 Rearrange('b c s d -> b (c s d)'),
