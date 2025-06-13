@@ -190,7 +190,7 @@ class Trainer(object):
                 )
                 print(cm)
                 if roc_auc > roc_auc_best:
-                    print("kappa increasing....saving weights !! ")
+                    print("roc_auc increasing....saving weights !! ")
                     print("Val Evaluation: acc: {:.5f}, pr_auc: {:.5f}, roc_auc: {:.5f}".format(
                         acc,
                         pr_auc,
