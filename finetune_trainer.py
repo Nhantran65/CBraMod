@@ -253,7 +253,7 @@ class Trainer(object):
                     )
                 )
                 if r2 > r2_best:
-                    print("kappa increasing....saving weights !! ")
+                    print("r2 increasing....saving weights !! ")
                     print("Val Evaluation: corrcoef: {:.5f}, r2: {:.5f}, rmse: {:.5f}".format(
                         corrcoef,
                         r2,
