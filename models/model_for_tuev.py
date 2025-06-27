@@ -30,7 +30,7 @@ class Model(nn.Module):
                 Rearrange('b c s d -> b (c s d)'),
                 nn.Linear(16 * 5 * 200, param.num_of_classes),
             )
-        elif param.classifier == 'all_patch_reps_onelayer':
+        elif param.classifier == 'all_patch_reps_twolayer':
             self.classifier = nn.Sequential(
                 Rearrange('b c s d -> b (c s d)'),
                 nn.Linear(16 * 5 * 200, 200),
