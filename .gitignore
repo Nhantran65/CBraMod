@@ -1,1 +1,38 @@
+# Model files
+*.pth
+saved_models/
+models/adhd_kfold/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Dataset files (too large)
+datasets/adhdata.csv
+
+# Virtual environment
+venv/
+env/
+.venv/
+
+# IDE
 .idea
+.vscode/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+*.log
